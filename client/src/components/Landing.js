@@ -7,7 +7,7 @@ const Landing = () => {
         <main id="home">
     <h1 className="lg-heading">
       Gohar
-      <span className="text-warning"> Attiq</span>
+      <span className="text-secondary"> Attiq</span>
     </h1>
     <h2 className="sm-heading">
       Web Developer & Programmer

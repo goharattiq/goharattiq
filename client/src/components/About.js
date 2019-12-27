@@ -8,7 +8,7 @@ const About = () => {
               <main id="about">
     <h1 className="lg-heading">
       About
-      <span className="text-warning">Me</span>
+      <span className="text-secondary">Me</span>
     </h1>
     <h2 className="sm-heading">
       Let me tell you a few things...
@@ -17,7 +17,7 @@ const About = () => {
       <img src={portsmall} alt="Gohar Attiq" className="bio-image"/>
 
       <div className="bio">
-        <h3 className="text-warning">BIO</h3>
+        <h3 className="text-secondary">BIO</h3>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt magni nam nisi quae vitae? Quod molestiae ipsa
           autem natus eum vel ducimus nulla harum voluptatem eligendi! Unde, reiciendis? Praesentium, laborum.</p>
       </div>
