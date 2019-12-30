@@ -1,1 +1,1 @@
-{"mongoURI":"mongodb+srv://gohar:1121998@portfolio-tuhrp.mongodb.net/myPortfolio?retryWrites=true&w=majority"}
+{"mongoURI":"mongodb+srv://gohar:<password>@portfolio-tuhrp.mongodb.net/myPortfolio?retryWrites=true&w=majority"}
