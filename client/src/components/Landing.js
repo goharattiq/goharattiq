@@ -10,7 +10,7 @@ const Landing = () => {
       <span className="text-secondary"> Attiq</span>
     </h1>
     <h2 className="sm-heading">
-      Web Developer & Programmer
+      Software Engineer
     </h2>
     <div className="icons">
       <a href="https://twitter.com/GoharAttiq" target="_blank"  rel="noopener noreferrer">
