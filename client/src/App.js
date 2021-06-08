@@ -13,15 +13,15 @@ import store from './redux/store';
 const App=()=> {
   return (
     <Provider store={store}>
-    <Router>
-      <Navbar/>
-      <Route exact path='/' component={Landing}/>
-      <Switch>
-        <Route exact path='/about' component={About}/>
-        <Route exact path='/work' component={Work}/>
-        <Route exact path='/contact' component={Contact}/>
-      </Switch>
-    </Router>
+      <Router>
+        <Navbar/>
+        <Route exact path='/' component={Landing}/>
+        <Switch>
+          <Route exact path='/about' component={About}/>
+          <Route exact path='/work' component={Work}/>
+          <Route exact path='/contact' component={Contact}/>
+        </Switch>
+      </Router>
     </Provider>
   );
 }
