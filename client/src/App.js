@@ -1,29 +1,22 @@
-import React from 'react';
-import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
 
-import Navbar from './components/Navbar';
-import Landing from './components/Landing';
-import Contact from './components/Contact';
-import Work from './components/Work';
-import About from './components/About';
+import { Navbar, Landing, Contact, Work, About } from "./components";
+import store from "./redux/store";
 
-import {Provider} from 'react-redux';
-import store from './redux/store';
-
-const App=()=> {
-  return (
-    <Provider store={store}>
-      <Router>
-        <Navbar/>
-        <Route exact path='/' component={Landing}/>
-        <Switch>
-          <Route exact path='/about' component={About}/>
-          <Route exact path='/work' component={Work}/>
-          <Route exact path='/contact' component={Contact}/>
-        </Switch>
-      </Router>
-    </Provider>
-  );
-}
+const App = () => (
+  <Provider store={store}>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="about" element={<About />} />
+        <Route path="work" element={<Work />} />
+        <Route path="contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
+  </Provider>
+);
 
 export default App;

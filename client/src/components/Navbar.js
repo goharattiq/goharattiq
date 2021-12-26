@@ -1,46 +1,60 @@
-import React,{useState} from 'react';
-import {Link} from 'react-router-dom'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import classNames from "classnames";
+
+import { NAV_LINKS } from "../AppConstants";
 
 const Navbar = () => {
-  const [navbarToggle,setNavbarToggle] = useState(false);
-  const handleNav=()=>{setNavbarToggle(!navbarToggle)}
+  const [navbarToggle, setNavbarToggle] = useState(false);
+  const handleNav = () => {
+    setNavbarToggle(!navbarToggle);
+  };
   return (
     <header>
-      <div className={`${navbarToggle?'menu-btn close':'menu-btn'}`} onClick={handleNav}>
+      <div
+        className={classNames("menu-btn", {
+          close: navbarToggle,
+        })}
+        onClick={handleNav}
+      >
         <div className="btn-line"></div>
         <div className="btn-line"></div>
         <div className="btn-line"></div>
       </div>
-      <nav className={`${navbarToggle?'menu show':'menu'}`}>
-        <div className={`${navbarToggle?'menu-branding show':'menu-branding'}`}>
+      <nav
+        className={classNames("menu", {
+          show: navbarToggle,
+        })}
+      >
+        <div
+          className={classNames("menu-branding", {
+            show: navbarToggle,
+          })}
+        >
           <div className="portrait"></div>
         </div>
-        <ul className={`${navbarToggle?'menu-nav show':'menu-nav'}`}>
-          <li className={`${navbarToggle?'nav-item current show':'nav-item current'}`} onClick={handleNav}>
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
-          </li>
-          <li className={`${navbarToggle?'nav-item show':'nav-item'}`} onClick={handleNav}>
-            <Link to="/about" className="nav-link">
-              About Me
-            </Link>
-          </li>
-          <li className={`${navbarToggle?'nav-item show':'nav-item'}`} onClick={handleNav}>
-            <Link to="/work" className="nav-link">
-              My Work
-            </Link>
-          </li>
-          <li className={`${navbarToggle?'nav-item show':'nav-item'}`} onClick={handleNav}>
-            <Link to="/contact" className="nav-link">
-              How To Reach Me
-            </Link>
-          </li>
+        <ul
+          className={classNames("menu-nav", {
+            show: navbarToggle,
+          })}
+        >
+          {NAV_LINKS.map(({ link, label }, index) => (
+            <li
+              className={classNames("nav-item", {
+                show: navbarToggle,
+                current: !index,
+              })}
+              onClick={handleNav}
+            >
+              <Link to={link} className="nav-link">
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
+  );
+};
 
-  )
-}
-
-export default Navbar
+export default Navbar;
