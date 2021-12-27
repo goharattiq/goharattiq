@@ -3,8 +3,12 @@ const express = require("express"),
   mongoose = require("mongoose"),
   path = require("path"),
   dotenv = require("dotenv"),
+  cors = require("cors"),
   work = require("./routes/api/Work");
 
+const whitelist = ["http://localhost:3000"];
+app.use(cors());
+app.options(whitelist, cors());
 dotenv.config();
 app.use(express.json({ extended: false }));
 
