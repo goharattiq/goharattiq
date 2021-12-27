@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { Navbar, Landing, Contact, Work, About } from "./components";
-import store from "./redux/store";
+import { store } from "./redux/store";
 
 const App = () => (
   <Provider store={store}>
