@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Spinner from "./Spinner.js";
 import Footer from "./Footer";
@@ -7,10 +7,13 @@ import ProjectItems from "./ProjectIems";
 
 import { getProjects } from "../redux/work/workThunk";
 
-const Work = ({ getProjects, Work: { projects, loading } }) => {
+const Work = () => {
+  const dispatch = useDispatch();
+  const { projects, loading } = useSelector((state) => state.work);
+
   useEffect(() => {
-    getProjects();
-  }, [getProjects]);
+    dispatch(getProjects());
+  }, []);
 
   return (
     <Fragment>
@@ -40,12 +43,5 @@ const Work = ({ getProjects, Work: { projects, loading } }) => {
     </Fragment>
   );
 };
-const mapStateToProps = (state) => ({
-  Work: state.work,
-});
 
-const mapDispatchToProps = (dispatch) => ({
-  getProjects: () => dispatch(getProjects()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Work);
+export default Work;
