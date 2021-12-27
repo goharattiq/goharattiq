@@ -1,13 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import {LOCALHOST, PROD_URL}  from '../../AppConstants';
 
 export const workApiSlicer = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000",
-    prepareHeaders(headers) {
-      headers.set("Access-Control-Allow-Origin", "*");
-      return headers;
-    },
+    baseUrl: process.env.NODE_ENV === "production" ? PROD_URL : LOCALHOST,
   }),
   endpoints(builder) {
     return {

@@ -28,3 +28,6 @@ export const HISTORY = [
       "Build new products and features through rapid build/measure/learn iterations. Work collaboratively with Designers, Peer Developers, Architects, and Product Managers on high impact projects. Support the open source community",
   },
 ];
+
+export const LOCALHOST = "http://localhost:5000";
+export const PROD_URL = "https://goharattiq.herokuapp.com";
