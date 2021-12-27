@@ -1,14 +1,11 @@
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import rootReducer from "./rootReducer";
+import { configureStore } from "@reduxjs/toolkit";
+import { workApiSlicer } from "./work/workSlicer";
 
-const initialState = {};
-const middleware = [thunk];
-
-const store = createStore(
-  rootReducer,
-  initialState,
-  applyMiddleware(...middleware)
-);
-
-export default store;
+export const store = configureStore({
+  reducer: {
+    [workApiSlicer.reducerPath]: workApiSlicer.reducer,
+  },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware().concat(workApiSlicer.middleware);
+  },
+});

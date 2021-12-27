@@ -1,26 +1,18 @@
-import React, { Fragment, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 
-import Spinner from "./Spinner.js";
+import Spinner from "./Spinner";
 import Footer from "./Footer";
 import ProjectItems from "./ProjectIems";
-
-import { getProjects } from "../redux/work/workThunk";
+import { useFetchProjectsQuery } from "../redux/work/workSlicer";
 
 const Work = () => {
-  const dispatch = useDispatch();
-  const { projects, loading } = useSelector((state) => state.work);
-
-  useEffect(() => {
-    dispatch(getProjects());
-  }, []);
-
+  const { data, isLoading, isFetching } = useFetchProjectsQuery();
   return (
-    <Fragment>
-      {loading ? (
+    <>
+      {isLoading || isFetching ? (
         <Spinner />
       ) : (
-        <Fragment>
+        <>
           <main id="work">
             <h1 className="lg-heading">
               My
@@ -28,8 +20,8 @@ const Work = () => {
             </h1>
             <h2 className="sm-heading">Check out some of my projects...</h2>
             <div className="projects">
-              {projects && projects.length > 0 ? (
-                projects.map((project) => (
+              {data && data.length > 0 ? (
+                data.map((project) => (
                   <ProjectItems key={project._id} project={project} />
                 ))
               ) : (
@@ -38,9 +30,9 @@ const Work = () => {
             </div>
           </main>
           <Footer />
-        </Fragment>
+        </>
       )}
-    </Fragment>
+    </>
   );
 };
 
