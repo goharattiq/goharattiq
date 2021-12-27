@@ -40,6 +40,7 @@ const Navbar = () => {
         >
           {NAV_LINKS.map(({ link, label }, index) => (
             <li
+              key={link}
               className={classNames("nav-item", {
                 show: navbarToggle,
                 current: !index,

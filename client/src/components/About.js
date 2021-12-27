@@ -30,7 +30,7 @@ const About = () => (
         </div>
         <div className="justify-content-center">
           {HISTORY.map(({ title, position, company, period, description }) => (
-            <div className="job job-1">
+            <div key={title} className="job job-1">
               <h2>{title}</h2>
               <h5>
                 {position} <br /> {company} <br />

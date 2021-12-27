@@ -12,7 +12,7 @@ const Landing = () => (
         <h2 className="sm-heading">Software Engineer</h2>
         <div className="icons">
           {SOCIAL_LINKS.map(({ link, icon }) => (
-            <a href={link} target="_blank" rel="noopener noreferrer">
+            <a key={icon} href={link} target="_blank" rel="noopener noreferrer">
               <i className={`fab ${icon} fa-2x`} />
             </a>
           ))}
